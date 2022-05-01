@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <!-- The link to the pyscript files are to be replaced official files when they are available at a CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MarcSkovMadsen/awesome-pyscript@master/assets/pyscript/pyscript.css" />
+    <script defer src="https://cdn.jsdelivr.net/gh/MarcSkovMadsen/awesome-pyscript@master/assets/pyscript/pyscript.js"></script>
+    <py-env>
+    - numpy
+    - matplotlib
+    </py-env>
+  </head>
+  <style>
+    .center {
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+        text-align: center;
+      }
+    #loading-content {
+        position:fixed;
+        top:0;
+        left:0;
+        width:100vw;
+        height:100vh;
+        z-index:1000;
+        background-color:darkslategray;
+        opacity:1.0;
+        transition: opacity 2s ease;
+    }
+    .loader {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid orange; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      body {
+          background: black;
+          color: white;
+      }
+      #content {
+        margin: 10px;
+      }
+  </style>
+  <body>
+    <div id="loading-indicator"><div id="loading-content">
+        <div class="center">
+            <div style="height:5vh;width:100vw"></div>
+            <div style="color:orange;font-size:12vh">&#60;Py&#62;</div>
+            <p style="color:orange;font-size:3vh">Python, data science and data apps in the browser</p>
+            <div style="height:5vh;width:100vw"></div>
+            <div class="loader center"></div>
+            <div style="height:5vh;width:100vw"></div>
+            <p style="color:orange;font-size:3vh">Check out awesome-pyscript.org for inspiration</p>
+        </div>
+    </div></div>
+    <div id="content">
+        <div class="center">
+            <h1>Let's plot random numbers using MATPLOTLIB</h1>
+            <div id="plot" style="height:400px;width:100%"></div>
+        </div>
+    </div>
+<py-script>
+pyscript.write('loading-indicator', '')
+</py-script>
+<py-script>
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.random.randn(1000)
+y = np.random.randn(1000)
+
+plt.style.use('dark_background')
+fig, ax = plt.subplots()
+ax.scatter(x, y, c="orange")
+pyscript.write('plot', fig)
+</py-script>
+    </body>
+</html>

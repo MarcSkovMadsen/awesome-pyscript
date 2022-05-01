@@ -29,11 +29,11 @@
 
     <!-- Import Shoelace -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.73/dist/themes/light.css" /> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.73/dist/themes/dark.css" />
     <style>
     body {
         background: darkslategray;;
         color: orange;
+        overflow-x: hidden;
     }
     video {
         border-radius: 5px;
@@ -44,8 +44,54 @@
         padding: 10px;
         text-align: center;
       }
+      div.gallery {
+        border: 1px solid #ccc;
+        margin: 10px;
+      }
+      
+      div.gallery:hover {
+        border: 1px solid #777;
+      }
+      
+      div.gallery img {
+        width: 100%;
+        height: auto;
+      }
+      
+      div.desc {
+        padding: 15px;
+        text-align: center;
+      }
+      
+      * {
+        box-sizing: border-box;
+      }
+      
+      .responsive {
+        padding: 0 6px;
+        float: left;
+        width: 24.99999%;
+      }
+      
+      @media only screen and (max-width: 700px) {
+        .responsive {
+          width: 49.99999%;
+          margin: 6px 0;
+        }
+      }
+      
+      @media only screen and (max-width: 500px) {
+        .responsive {
+          width: 100%;
+        }
+      }
+      
+      .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
     </style>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.73/dist/shoelace.js"></script>
   </head>
   <body class="sl-theme-dark">
     <div id="app"></div>
@@ -60,5 +106,23 @@
         <p style="color:var(--sl-color-amber-500);font-size:3vh">Find your inspiration at awesome-pyscript.org</p>
     </div>
     <hr style="width:50%">
+    
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="matplotlib-hello.html">
+            <img src="assets/images/gallery/matplotlib-hello.png" alt="Matplotlib Hello World App" width="600" height="400">
+            </a>
+            <div class="desc">A simple app that outputs a matplotlib image</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="panel-hello.html">
+            <img src="assets/images/gallery/matplotlib-hello.png" alt="Panel Hello World App" width="600" height="400">
+            </a>
+            <div class="desc">A simple app that outputs a Panel component</div>
+        </div>
+    </div>
   </body>
 </html>
