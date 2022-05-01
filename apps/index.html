@@ -1,84 +1,64 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <!-- The link to the pyscript files are to be replaced official files when they are available at a CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MarcSkovMadsen/awesome-pyscript@master/assets/pyscript/pyscript.css" />
-    <script defer src="https://cdn.jsdelivr.net/gh/MarcSkovMadsen/awesome-pyscript@master/assets/pyscript/pyscript.js"></script>
-    <py-env>
-    - numpy
-    - matplotlib
-    </py-env>
-  </head>
-  <style>
+    <meta charset="UTF-8" />
+    <title>Awesome Pyscript</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="description"
+      content="Awesome-Pyscript provides inspiration for pyscript - Python in the browser."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Awesome-Pyscript" />
+    <meta
+      property="og:description"
+      content="Awesome-Pyscript provides inspiration for pyscript - Python in the browser."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://awesome-pyscript.org" />
+    <meta property="og:image" content="https://shoelace.stylehttps://cdn.jsdelivr.net/gh/shoelace-style/shoelace@next/docs/assets/images/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@marcskovmadsen" />
+    <meta name="twitter:creator" content="@marcskovmadsen" />
+    <meta name="twitter:title" content="Awesome Pyscript" />
+    <meta
+      name="twitter:description"
+      content="Awesome-Pyscript provides inspiration for pyscript - Python in the browser."
+    />
+    <meta name="twitter:image" content="https://shoelace.stylehttps://cdn.jsdelivr.net/gh/shoelace-style/shoelace@next/docs/assets/images/twitter-card.png" />
+
+    <!-- Import Shoelace -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.73/dist/themes/light.css" /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.73/dist/themes/dark.css" />
+    <style>
+    body {
+        background: darkslategray;;
+        color: orange;
+    }
+    video {
+        border-radius: 5px;
+    }
     .center {
         margin: auto;
-        width: 50%;
+        width: 70%;
         padding: 10px;
         text-align: center;
       }
-    #loading-content {
-        position:fixed;
-        top:0;
-        left:0;
-        width:100vw;
-        height:100vh;
-        z-index:1000;
-        background-color:darkslategray;
-        opacity:1.0;
-        transition: opacity 2s ease;
-    }
-    .loader {
-        border: 16px solid #f3f3f3; /* Light grey */
-        border-top: 16px solid orange; /* Blue */
-        border-radius: 50%;
-        width: 120px;
-        height: 120px;
-        animation: spin 2s linear infinite;
-      }
-      
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-      body {
-          background: black;
-          color: white;
-      }
-      #content {
-        margin: 10px;
-      }
-  </style>
-  <body>
-    <div id="loading-indicator"><div id="loading-content">
-        <div class="center">
-            <div style="height:5vh;width:100vw"></div>
-            <div style="color:orange;font-size:12vh">&#60;Py&#62;</div>
-            <p style="color:orange;font-size:3vh">Python, data science and data apps in the browser</p>
-            <div style="height:5vh;width:100vw"></div>
-            <div class="loader center"></div>
-            <div style="height:5vh;width:100vw"></div>
-            <p style="color:orange;font-size:3vh">Check out pyscript.net</p>
-        </div>
-    </div></div>
-    <div id="content">
-        <div class="center">
-            <h1>Let's plot random numbers using MATPLOTLIB</h1>
-            <div id="plot" style="height:400px;width:100%"></div>
-        </div>
+    </style>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.73/dist/shoelace.js"></script>
+  </head>
+  <body class="sl-theme-dark">
+    <div id="app"></div>
+    <div class="center">
+        <div style="height:5vh;width:100vw"></div>
+        <div style="color:var(--sl-color-amber-500);font-size:12vh">&#60;Py&#62;</div>
+        <p style="color:var(--sl-color-amber-500);font-size:3vh">Python, data science and data apps in the browser</p>
+        <video style="max-width:50vh;max-height:50vw" controls autoplay>
+        <source src="https://cdn.jsdelivr.net/gh/MarcSkovMadsen/awesome-pyscript@master/assets/videos/awesome-pyscript-intro.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+          </video> 
+        <p style="color:var(--sl-color-amber-500);font-size:3vh">Find your inspiration at awesome-pyscript.org</p>
     </div>
-<py-script>
-pyscript.write('loading-indicator', '')
-</py-script>
-<py-script>
-import matplotlib.pyplot as plt
-import numpy as np
-
-x = np.random.randn(1000)
-y = np.random.randn(1000)
-
-plt.style.use('dark_background')
-fig, ax = plt.subplots()
-ax.scatter(x, y, c="orange")
-pyscript.write('plot', fig)
-</py-script>
-    </body>
+    <hr style="width:50%">
+  </body>
 </html>
